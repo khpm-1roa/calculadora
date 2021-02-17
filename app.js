@@ -4,41 +4,42 @@ const url = require('url');
 const path = require ('path');
 const port = 3000;
 
-
-app.get('/calculadora',(req, res) => {
-    let numero1 = parseFloat(req.query.numero1);
-    let numero2 = parseFloat(req.query.numero2);
-    let operacion = req.query.operacion.toLowerCase(); 
-    const calculadora = {
-        get laRespuestaEs(){ 
-            switch(operacion){
-                case "suma":
-                var result = parseInt(numero1) + parseInt(numero2);
-                return(result);
-                break;
-                case "resta":
-                    var result = parseInt(numero1) - parseInt(numero2);
-                return(result);
-                break;
-                case "multiplicacion":
-                    var result = parseInt(numero1) * parseInt(numero2);
-                return(result)
-                case "division":
-                        if(numero2 == 0){
-                            return 'no se puede dividir 0';
-                        } else{
-                            return result = parseInt(numero1) / parseInt(numero2);
-                    
-                        }
-            }
-
+app.get('/fibonacci',(req, res) => {
+    fibonacci = [];
+    let numero = parseFloat(req.query.numero);
+     parImpar = (numero) => {
+        if(numero % 2 === 0) {
+          return "par";
         }
+        else {
+          return "impar";
+        }
+      }
+    if ( parImpar(numero) === "par" ) {
+        let numero1= 0,
+        numero2= 1,
+        resultado = numero1+numero2;
+    for (let i=0; i< 20 ;i++){
+        resultado = numero1 + numero2;
+        numero1 = numero2;
+        numero2 = resultado;
+
+        fibonacci.push(resultado);
     }
-
-    res.json(calculadora);
-
+    }else
+    {
+        let numero1= 0,
+        numero2= 1,
+        resultado = numero1+numero2;
+    for (let i=0; i< 10 ;i++){
+        resultado = numero1 + numero2;
+        numero1 = numero2;
+        numero2 = resultado;
+        fibonacci.push(resultado);
+    }
+    }
+    res.json(`La respuesta es : ${fibonacci}`);
 })
-
 
 app.listen(port, ()=> {
     console.log(`Escucha de el puerto 3000 ${port}!`)

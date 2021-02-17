@@ -7,40 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="http://localhost:3000/calculadora" method="GET" >
+    <form action="http://localhost:3000/fibonacci" method="GET" >
+        <center>
+            <div>
+            <label >Ingresar ultimo numero de cedula</label> <br>
+            <input   type="number"  name="numero"  />
+        </div>
+        <div >
+            <button> 
+               CALCULAR
+            </button>
+        </div>
         <div>
-            <label >ingrese numero1</label>
-            <input   type="number"  name="numero1" step="0.001" />
-        </div>
-        <div>
-            <label >ingrese numero2</label>
-            <input  type="number"   name="numero2" step="0.001" />
-
-        </div>
-        
-        <div id="Suma">
-            <button name="operacion" value="Suma"> 
-                +
-            </button>
-        </div>
-        
-        <div id="Resta">
-            <button name="operacion" value="Resta"> 
-                -
-            </button>
-        </div>
-        
-        <div id="Multiplicacion">
-            <button name="operacion" value="Multiplicacion"> 
-                X
-            </button>
-        </div>
-        <div id="Division">
-            <button name="operacion" value="Division" > 
-                /
-            </button>
-        </div>
-        
+            <input type="reset" value="LIMPIAR">
+        </div> 
+        </center>
+       
     </form>
 
 </body>
